@@ -1,0 +1,39 @@
+#define	BOOT	9	//	X	//	GPIO9	1	Pin	4	/	1	Input/Output (Bootstrapping)   Pulled LOW for programming
+#define	GPIO0	0	//		//	GPIO0	13	Pin		/		"Input/Output (ADC; GPIO; PWM; I2S; I2C; UART)"
+#define	GPIO1	1	//		//	GPIO1	14					"Input/Output (ADC; GPIO; PWM; I2S; I2C; UART)"
+#define	GPIO18	18	//		//	GPIO18	2	Pin		/		"Input/Output (GPIO; PWM; I2S; I2C; UART)"
+#define	GPIO19	19	//		//	GPIO19	3	Pin		/		"Input/Output (GPIO; PWM; I2S; I2C; UART)"
+#define	GPIO2	2	//		//	GPIO2	15	Pin	6	/	1	"Input/Output (ADC; GPIO; PWM; I2S; I2C; UART)"
+#define	GPIO20	20	//		//	GPIO20	4	Pin		/		"Input/Output (GPIO; PWM; I2S; I2C; UART)"
+#define	GPIO23	23	//		//	GPIO23	5	Pin		/		"Input/Output (GPIO; PWM; I2S; I2C; UART)"
+#define	GPIO3	3	//		//	GPIO3	16					"Input/Output (ADC; GPIO; PWM; I2S; I2C; UART)"
+#define	LCD_BL	22	//	X	//	GPIO22		Pin		/		Internal ST7789 LCD
+#define	LCD_CS	14	//	X	//	GPIO14		Pin		/		Internal ST7789 LCD
+#define	LCD_DC	15	//	X	//	GPIO15		Pin		/		Internal ST7789 LCD
+#define	LCD_RST	21	//	X	//	GPIO21		Pin		/		Internal ST7789 LCD
+#define	RGB_IO	8	//		//	GPIO8		Pin		/		Internal LED
+#define	RXD	17	//		//	GPIO17	8	Pin	2	/	2	UART or GPIO
+#define	SD_CS	4	//		//	GPIO4	17	Pin		/		"Input/Output (ADC; GPIO; PWM; I2S; I2C; UART)"
+#define	SPI_CLK	7	//	X	//	GPIO7		Pin		/		Internal ST7789 LCD  and SD card
+#define	SPI_MISO	5	//		//	GPIO5	18	Pin		/		"Input/Output (ADC; GPIO; PWM; I2S; I2C; UART)"
+#define	SPI_MOSI	6	//	X	//	GPIO6		Pin		/		Internal ST7789 LCD  and SD card
+#define	TXD	16	//		//	GPIO16	9	Pin	1	/	2	UART or GPIO
+#define	USB N	12	//	X	//	GPIO12	6	Pin		/		Default receive pin for UART0. Primary programming UART
+#define	USB P	13	//	X	//	GPIO13	7	Pin		/		Default transmit pin for UART0. Primary programming UART
+//			//	X	//	5V	10	Pin	1	/	1	VCC Input
+//			//	X	//	GND	11	Pin	2	/	1	GND
+//			//	X	//	3.3V	12	Pin	3	/	1	VCC Output
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												

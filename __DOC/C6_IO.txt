@@ -1,0 +1,35 @@
+//                      // X // 3.3V    Pin 1/1
+//                      // X // GND     Pin 2/1 & PIN 1/4
+//                      // X // EN      Pin 2/2   Must be pulled High to run
+#define GPIO0        0  //   // GPIO0   Pin 2/8   Input/Output (Bootstrapping)   Pulled LOW for programming
+#define GPIO2        2  //   // GPIO2   Pin 1/9   Input/Output (Bootstrapping)   Affects boot mode, use with care (pull-ups)
+#define TXD          1  //   // GPIO1   Pin 1/2   Default transmit pin for UART0. Primary UART used for programming.
+#define RXD          3  //   // GPIO3   Pin 1/3   Default receive pin for UART0.  Primary UART used for programming.
+#define ADC1        39  //   // GPIO39  Pin 3/1   Input (VP; ADC; Sensor)   Input only; no internal pull-up
+#define ADC2        36  //   // GPIO36  Pin 4/1   Input (VN; ADC; Sensor)   Input only; no internal pull-up
+#define ADC3        34  //   // GPIO34  Pin 3/2   Input (ADC; Sensor)   Input only; no internal pull-up
+#define ADC4        35  //   // GPIO35  Pin 4/2   Input (ADC; Sensor)   Input only; no internal pull-up
+#define ADC5        32  // X // GPIO32  Pin 3/3   Input/Output (ADC; Touch9)  
+#define ADC6        33  // X // GPIO33  Pin 4/3   Input/Output (ADC; Touch8)  
+#define ADC7         4  // X // GPIO4   Pin 1/8   Input/Output (ADC; Touch0)   Touch sensor or Digital
+#define DAC1        25  // X // GPIO25  Pin 3/4   Input/Output (DAC1)   Digital and DAC
+#define DAC2        26  // X // GPIO26  Pin 4/4   Input/Output (DAC2)   Digital and DAC
+#define GPIO27      27  // X // GPIO27  Pin 3/5   Input/Output  
+#define RXD2        16  // X // GPIO16  Pin 2/7   Output (UART2)   Used for UART2 RXD
+#define TXD2        17  // X // GPIO17  Pin 1/7   Output (UART2)   Used for UART2 TXD
+#define I2C_SDA     21  // X // GPIO21  Pin 1/5   Input/Output (I2C SDA)   I2C SDA or Digital
+#define I2C_SCL     22  //   // GPIO22  Pin 2/4   Input/Output (I2C SCL)   I2C SCL or Digital
+#define SPI_CLK      6  //   // GPIO6   Pin 4/8   DO NOT USE it is for internal flash Input/Output  
+#define SPI_MISO     7  //   // GPIO7   Pin 3/9   DO NOT USE it is for internal flash Input/Output  
+#define SPI_MOSI     8  //   // GPIO8   Pin 4/9   DO NOT USE it is for internal flash Input/Output  
+#define SPI_HD       9  //   // GPIO9   Pin 3/7   Input (SD_CARD_DATA2)  RTX1 Often unavailable due to internal Flash usage
+#define SPI_WD      10  //   // GPIO10  Pin 4/7   Input (SD_CARD_DATA3)  TDX1 Often unavailable due to internal Flash usage
+#define SPI_CS      11  //   // GPIO11  Pin 3/8   DO NOT USE it is for internal flash Input/Output  
+#define VSPI_CLK    18  // X // GPIO18  Pin 1/6   Input/Output (VSPI_CLK)    SPI or Digital
+#define VSPI_MISO   19  // X // GPIO19  Pin 2/5   Input/Output (VSPI_MISO)   SPI or Digital
+#define VSPI_MOSI   23  //   // GPIO23  Pin 2/3   Input/Output (VSPI_MOSI)   SPI or Digital
+#define VSPI_CS      5  //   // GPIO5   Pin 2/6   Input/Output (VSPI)    Use with care (pull-ups) for SPI or Digital
+#define HSPI_CLK    14  // X // GPIO14  Pin 4/5   Input/Output (HSPI_CLK)    SPI or Digital
+#define HSPI_MISO   12  // X // GPIO12  Pin 3/6   Input/Output (HSPI_MISO)   SPI or Digital
+#define HSPI_MOSI   13  // X // GPIO13  Pin 4/6   Input/Output (HSPI_MOSI)   SPI or Digital
+#define HSPI_CS     15  // X // GPIO15  Pin 2/9   Input/Output (HSPI_CS)     SPI or Digital

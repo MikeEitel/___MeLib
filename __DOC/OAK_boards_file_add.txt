@@ -1,0 +1,121 @@
+##############################################################
+oak.name=Digistump Oak
+
+oak.upload.tool=esptool
+oak.upload.speed=115200
+oak.upload.resetmethod=ck
+oak.upload.maximum_size=434160
+oak.upload.maximum_data_size=81920
+oak.upload.wait_for_upload_port=true
+oak.serial.disableDTR=true
+oak.serial.disableRTS=true
+
+oak.build.mcu=esp8266
+oak.build.f_cpu=80000000L
+oak.build.board=ESP8266_OAK
+oak.build.core=esp8266
+oak.build.variant=DigiStumpOak
+oak.build.flash_mode=qio
+oak.build.spiffs_pagesize=256
+oak.build.debug_port=
+oak.build.debug_level=
+
+oak.menu.CpuFrequency.80=80 MHz
+oak.menu.CpuFrequency.80.build.f_cpu=80000000L
+oak.menu.CpuFrequency.160=160 MHz
+oak.menu.CpuFrequency.160.build.f_cpu=160000000L
+
+oak.menu.FlashFreq.40=40MHz
+oak.menu.FlashFreq.40.build.flash_freq=40
+oak.menu.FlashFreq.80=80MHz
+oak.menu.FlashFreq.80.build.flash_freq=80
+
+oak.menu.FlashMode.dio=DIO
+oak.menu.FlashMode.dio.build.flash_mode=dio
+oak.menu.FlashMode.qio=QIO
+oak.menu.FlashMode.qio.build.flash_mode=qio
+oak.menu.FlashMode.dout=DOUT
+oak.menu.FlashMode.dout.build.flash_mode=dout
+oak.menu.FlashMode.qout=QOUT
+oak.menu.FlashMode.qout.build.flash_mode=qout
+
+oak.menu.UploadSpeed.115200=115200
+oak.menu.UploadSpeed.115200.upload.speed=115200
+oak.menu.UploadSpeed.9600=9600
+oak.menu.UploadSpeed.9600.upload.speed=9600
+oak.menu.UploadSpeed.57600=57600
+oak.menu.UploadSpeed.57600.upload.speed=57600
+oak.menu.UploadSpeed.256000.windows=256000
+oak.menu.UploadSpeed.256000.upload.speed=256000
+oak.menu.UploadSpeed.230400.linux=230400
+oak.menu.UploadSpeed.230400.macosx=230400
+oak.menu.UploadSpeed.230400.upload.speed=230400
+oak.menu.UploadSpeed.460800.linux=460800
+oak.menu.UploadSpeed.460800.macosx=460800
+oak.menu.UploadSpeed.460800.upload.speed=460800
+oak.menu.UploadSpeed.512000.windows=512000
+oak.menu.UploadSpeed.512000.upload.speed=512000
+oak.menu.UploadSpeed.921600=921600
+oak.menu.UploadSpeed.921600.upload.speed=921600
+
+oak.menu.FlashSize.4M1M=4M (1M SPIFFS)
+oak.menu.FlashSize.4M1M.build.flash_size=4M
+oak.menu.FlashSize.4M1M.build.flash_ld=eagle.flash.4m1m.ld
+oak.menu.FlashSize.4M1M.build.spiffs_start=0x300000
+oak.menu.FlashSize.4M1M.build.spiffs_end=0x3FB000
+oak.menu.FlashSize.4M1M.build.spiffs_blocksize=8192
+oak.menu.FlashSize.4M1M.build.spiffs_pagesize=256
+oak.menu.FlashSize.4M1M.upload.maximum_size=1044464
+
+oak.menu.FlashSize.4M3M=4M (3M SPIFFS)
+oak.menu.FlashSize.4M3M.build.flash_size=4M
+oak.menu.FlashSize.4M3M.build.flash_ld=eagle.flash.4m.ld
+oak.menu.FlashSize.4M3M.build.spiffs_start=0x100000
+oak.menu.FlashSize.4M3M.build.spiffs_end=0x3FB000
+oak.menu.FlashSize.4M3M.build.spiffs_blocksize=8192
+oak.menu.FlashSize.4M3M.upload.maximum_size=1044464
+
+oak.menu.ResetMethod.ck=ck
+oak.menu.ResetMethod.ck.upload.resetmethod=ck
+oak.menu.ResetMethod.nodemcu=nodemcu
+oak.menu.ResetMethod.nodemcu.upload.resetmethod=nodemcu
+
+oak.menu.Debug.Disabled=Disabled
+oak.menu.Debug.Disabled.build.debug_port=
+oak.menu.Debug.Serial=Serial
+oak.menu.Debug.Serial.build.debug_port=-DDEBUG_ESP_PORT=Serial
+oak.menu.Debug.Serial1=Serial1
+oak.menu.Debug.Serial1.build.debug_port=-DDEBUG_ESP_PORT=Serial1
+
+oak.menu.DebugLevel.None____=None
+oak.menu.DebugLevel.None____.build.debug_level=
+oak.menu.DebugLevel.Core____=Core
+oak.menu.DebugLevel.Core____.build.debug_level=-DDEBUG_ESP_CORE
+oak.menu.DebugLevel.SSL_____=Core + SSL
+oak.menu.DebugLevel.SSL_____.build.debug_level=-DDEBUG_ESP_CORE -DDEBUG_ESP_SSL
+oak.menu.DebugLevel.SSL_MEM_=Core + SSL + TLS Mem
+oak.menu.DebugLevel.SSL_MEM_.build.debug_level=-DDEBUG_ESP_CORE -DDEBUG_ESP_SSL -DDEBUG_TLS_MEM
+oak.menu.DebugLevel.WiFic___=Core + WiFi
+oak.menu.DebugLevel.WiFic___.build.debug_level=-DDEBUG_ESP_CORE -DDEBUG_ESP_WIFI
+oak.menu.DebugLevel.WiFi____=WiFi
+oak.menu.DebugLevel.WiFi____.build.debug_level=-DDEBUG_ESP_WIFI
+oak.menu.DebugLevel.HTTPClient=HTTPClient
+oak.menu.DebugLevel.HTTPClient.build.debug_level=-DDEBUG_ESP_HTTP_CLIENT
+oak.menu.DebugLevel.HTTPClient2=HTTPClient + SSL
+oak.menu.DebugLevel.HTTPClient2.build.debug_level=-DDEBUG_ESP_HTTP_CLIENT -DDEBUG_ESP_SSL
+oak.menu.DebugLevel.HTTPUpdate=HTTPUpdate
+oak.menu.DebugLevel.HTTPUpdate.build.debug_level=-DDEBUG_ESP_HTTP_UPDATE
+oak.menu.DebugLevel.HTTPUpdate2=HTTPClient + HTTPUpdate
+oak.menu.DebugLevel.HTTPUpdate2.build.debug_level=-DDEBUG_ESP_HTTP_UPDATE -DDEBUG_ESP_HTTP_UPDATE
+oak.menu.DebugLevel.HTTPUpdate3=HTTPClient + HTTPUpdate + Updater
+oak.menu.DebugLevel.HTTPUpdate3.build.debug_level=-DDEBUG_ESP_HTTP_UPDATE -DDEBUG_ESP_HTTP_UPDATE -DDEBUG_ESP_UPDATER
+oak.menu.DebugLevel.HTTPServer=HTTPServer
+oak.menu.DebugLevel.HTTPServer.build.debug_level=-DDEBUG_ESP_HTTP_SERVER
+oak.menu.DebugLevel.UPDATER=Updater
+oak.menu.DebugLevel.UPDATER.build.debug_level=-DDEBUG_ESP_UPDATER
+oak.menu.DebugLevel.OTA_____=OTA
+oak.menu.DebugLevel.OTA_____.build.debug_level=-DDEBUG_ESP_OTA
+oak.menu.DebugLevel.OTA2____=OTA + Updater
+oak.menu.DebugLevel.OTA2____.build.debug_level=-DDEBUG_ESP_OTA -DDEBUG_ESP_UPDATER
+oak.menu.DebugLevel.all_____=All
+oak.menu.DebugLevel.all_____.build.debug_level=-DDEBUG_ESP_CORE -DDEBUG_ESP_SSL -DDEBUG_ESP_WIFI -DDEBUG_ESP_HTTP_CLIENT -DDEBUG_ESP_HTTP_UPDATE -DDEBUG_ESP_HTTP_SERVER -DDEBUG_ESP_UPDATER -DDEBUG_ESP_OTA -DDEBUG_TLS_MEM

@@ -1,0 +1,14 @@
+{
+  "name": "Arduino_GFX",
+  "version": "1.6.5",
+  "build": {
+    "srcDir": ".",
+    "srcFilter": [
+      "+<*.cpp>",
+      "+<databus/*.cpp>",
+      "+<display/*.cpp>",
+      "-<databus/Arduino_ESP32RGBPanel.cpp>",
+      "-<display/Arduino_RGB_Display.cpp>"
+    ]
+  }
+}

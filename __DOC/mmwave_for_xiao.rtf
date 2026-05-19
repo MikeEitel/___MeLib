@@ -1,0 +1,153 @@
+Before we get started developing a sketch, let's look at the available functions of the library.
+
+Seeed_HSP24(Stream &serial) —— Used to pass in the serial port that the sensor is connected to and start initialising the sensor.
+
+Input Parameters:
+
+serial: The serial port to which the sensor is connected.
+Seeed_HSP24(Stream &serial, Stream &debugSerial) —— Used to pass in the serial port that the sensor is connected to, add the debug serial port and start initialising the sensor.
+
+Input Parameters:
+
+serial: The serial port to which the sensor is connected.
+debugSerial: Enable serial debugging and output in the incoming serial port.
+String getVersion() —— Get the software version number of the sensor.
+
+Return: The software version number of the sensor.
+RadarStatus getStatus() —— Get the status information of the sensor, all the information reported by the sensor will be parsed by this function.
+
+Return:
+radarStatus.radarMode: Engineering Mode or Base Mode. 1 corresponds to Engineering Mode and 2 corresponds to Base Mode.
+radarStatus.targetStatus: Indicates the current situation of the monitoring object. There are four situations in total (NoTarget), the first is no person detected (MovingTarget), the second is someone detected as stationary (StaticTarget), the third is detected at the same time (BothTargets), and the fourth is an anomaly (ErrorFrame). Where BothTarget refers to someone's movement. Because the sensor monitors the current environment, the motion energy and stationary energy both exceed the set threshold, so we named "BothTarget", if only the motion energy exceeds the threshold, then it will output "MovingTarget".
+radarStatus.distance: This value refers to the distance that the sensor detects from the detected object.
+radarStatus.radarMovePower.moveGate (Effective in engineering mode): This array stores the moving energy values for different distance gates.
+radarStatus.radarStaticPower.staticGate (Effective in engineering mode): This array stores the static energy values for different distance gates.
+radarStatus.photosensitive (Effective in engineering mode): This value refers to the sensor photosensitivity value, range 0-255.
+DataResult sendCommand(const byte* sendData, int sendDataLength) —— Commands are sent to the sensor through this function.
+
+Input Parameters:
+
+sendData: The array of command frames sent.
+sendDataLength: The length of the command frame sent.
+Return:
+
+resultBuffer: Points to a dynamically allocated array.
+length: Length of the array.
+AskStatus setDetectionDistance(int distance,int times) —— Configure the maximum distance gate and unoccupied duration with this function.
+
+Input Parameters:
+
+distance: Configure the maximum distance gate.
+times: Unoccupied duration time.
+Return:
+
+Success 0x00 or Error 0x01.
+AskStatus setGatePower(int gate,int movePower, int staticPower) —— Different distance gates as well as sensitivities are configured with this function.
+
+Input Parameters:
+
+gate: Distance to door, range 0-8 m.
+movePower: The energy value that triggers the motion threshold.
+staticPower: The energy value that triggers the resting threshold.
+Ruturn:
+
+Success 0x00 or Error 0x01.
+RadarStatus getConfig() —— Reads the parameter values of the setting sensor.
+
+Return:
+radarStatus.detectionDistance: Number of motion detection distance gates for radar.
+radarStatus.moveSetDistance: Number of stationary detection distance gates for radar.
+radarStatus.staticSetDistance: Radar's longest detection range gate.
+radarStatus.noTargrtduration: Unmanned duration.
+AskStatus setResolution(int resolution) —— Set the distance to the door resolution, 1 is 0.25M, 0 is 0.75M. Default 0.75M.
+
+Input Parameters:
+
+resolution: 1 is 0.25M, 0 is 0.75M. Default 0.75M.
+Ruturn:
+
+Success 0x00 or Error 0x01.
+RadarStatus getResolution() —— Get distance to door resolution, 1 is 0.25M, 0 is 0.75M. Default 0.75M.
+
+Ruturn:
+radarStatus.resolution: 1 is 0.25M, 0 is 0.75M. Default 0.75M.
+AskStatus rebootRadar() —— Reboot radar command.
+
+Ruturn:
+Success 0x00 or Error 0x01.
+AskStatus refactoryRadar() —— Restore the radar to factory settings.
+
+Ruturn:
+Success 0x00 or Error 0x01.
+AskStatus enableEngineeringModel() —— Enables sensor engineering mode output.
+
+Ruturn:
+Success 0x00 or Error 0x01.
+AskStatus disableEngineeringModel() —— Exit engineering mode output.
+
+Ruturn:
+Success 0x00 or Error 0x01.
+Default Variables
+#define BUFFER_SIZE 256     // Serial Buffer Size
+
+class Seeed_HSP24
+{
+    public:
+        static const int FRAME_START_SIZE = 4;
+        static const int FRAME_END_SIZE = 4;
+
+        static const byte frameStart[FRAME_START_SIZE];
+        static const byte frameEnd[FRAME_END_SIZE];
+        static const byte frameAskStart[FRAME_START_SIZE];
+        static const byte frameAskEnd[FRAME_END_SIZE];
+
+        struct RadarMovePower // Energy value per movement distance gate
+        {
+            int moveGate[9] = {-1, -1, -1, -1, -1, -1, -1, -1, -1};
+        };
+
+        struct RadarStaticPower // Energy value per stationary distance gate
+        {
+            int staticGate[9] = {-1, -1, -1, -1, -1, -1, -1, -1, -1};
+        };
+
+        //  Define the TargetStatus enum class
+        enum class AskStatus : byte
+        {
+            Success = 0x00, // Success
+            Error = 0x01,   // Failed
+        };
+
+        //  定义TargetStatus枚举类
+        enum class TargetStatus : byte
+        {
+            NoTarget = 0x00,     // No target
+            MovingTarget = 0x01, // Moving target
+            StaticTarget = 0x02, // Static target
+            BothTargets = 0x03,  // It can be interpreted as motion, meaning that both the set motion and stationary thresholds are above the set value
+            ErrorFrame = 0x04    // Failed to get status
+        };
+
+        // Define the RadarStatus structure
+        struct RadarStatus
+        {
+            TargetStatus targetStatus = TargetStatus::ErrorFrame; // Target status of the radar
+            int distance = -1;                                    // Target distance of the radar in mm
+            int moveSetDistance = -1;                             // The number of motion detection distance gates of the radar, which generally do not have to be configured
+            int staticSetDistance = -1;                           // Number of static detection distance gates of the radar, which generally do not have to be configured
+            int detectionDistance = -1;                           // Radar's longest detection range gate
+            int resolution = -1;                                  // Distance gate resolution of radar
+            int noTargrtduration = -1;                            // Unmanned duration
+            int radarMode = -1;                                   // Used to distinguish whether the module is in basic reporting mode (2) or engineering reporting mode (1)
+            RadarMovePower radarMovePower;                        // Exercise Energy Value
+            RadarStaticPower radarStaticPower;                    // Stationary energy value
+            int photosensitive = -1;                              // Photosensitive 0-255
+        };
+
+        // Used to return the result of an issued command
+        struct DataResult
+        {
+            byte *resultBuffer; // Points to a dynamically allocated array
+            int length;         // Length of the array
+        };
+};

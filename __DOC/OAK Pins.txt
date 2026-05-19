@@ -1,0 +1,26 @@
+i2C
+SDA = 0
+SCL = 2
+
+UART / Serial
+RX = 3
+TX = 4
+
+SPI
+SS = 6
+MOSI = 7
+MISO = 8
+SCK = 9
+
+I2S (Inter-IC Sound)
+LRC (FS, WS) = 0
+BCLK (SCK) = 6
+DIN (SD) = 3
+
+Other
+BUILTIN_LED = 1
+A0 = 11
+
+Oak Pin to ESP8266 GPIO Mapping
+Oak Pin	P0	P1	P2	P3	P4	P5	P6	P7	P8	P9	P10	P11
+GPIO	2	5	0	3	1	4	15	13	12	14	16	17
